@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ReWear - Add New Item</title>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+        :root {
+            --primary-color: #14b781;
+            --secondary-color: #f0f2f4;
+            --background-color: #f9f9f9;
+            --text-primary: #111418;
+            --text-secondary: #637488;
+            --accent-color: #e0e7ff;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            @apply bg-[var(--background-color)] text-[var(--text-primary)];
+        }
+        .button_primary {
+            @apply bg-[var(--primary-color)] text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50;
+        }
+        .button_secondary {
+            @apply bg-[var(--secondary-color)] text-[var(--text-primary)] py-2 px-4 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50;
+        }
+        .input {
+            @apply bg-white border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)];
+        }
+        .typography_h1 {
+            @apply text-3xl font-bold text-[var(--text-primary)];
+        }
+        .typography_h2 {
+            @apply text-2xl font-semibold text-[var(--text-primary)];
+        }
+        .typography_body {
+            @apply text-base text-[var(--text-secondary)];
+        }
+        .link {
+            @apply text-[var(--primary-color)] hover:underline;
+        }
+        .header {
+            @apply bg-white shadow-sm py-4;
+        }
+        .nav {
+            @apply flex justify-between items-center container mx-auto px-4;
+        }
+        .nav_links {
+            @apply flex space-x-8 items-center;
+        }
+        .nav_link {
+            @apply text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-medium;
+        }
+    </style>
+</head>
+<body class="bg-background-color text-text-primary">
+<header class="header">
+<div class="nav">
+<div class="flex items-center gap-4 text-text-primary">
+<div class="size-8 text-[var(--primary-color)]">
+<svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold">ReWear</h1>
+</div>
+<div class="nav_links">
+<a class="nav_link" href="landing_page.html">Home</a>
+<a class="nav_link" href="profile.html">Profile</a>
+<a class="nav_link" href="swaps.html">Swaps</a>
+<a class="nav_link" href="my_itmes.html">My Items</a>
+<button class="nav_link" onclick="auth.logout()">Logout</button>
+</div>
+<div class="flex items-center gap-4">
+<button class="button_secondary p-2 rounded-full">
+<svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+<path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"></path>
+</svg>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("");'></div>
+</div>
+</div>
+</header>
+<main class="container mx-auto px-4 py-8">
+<div class="max-w-3xl mx-auto">
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="p-8">
+<h2 class="typography_h2 mb-6">Add New Item</h2>
+<div class="mb-6">
+<label class="block text-sm font-medium text-text-secondary mb-2" for="item-images">Item Images</label>
+<div class="flex items-center justify-center w-full">
+<label class="flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 border-[var(--text-secondary)]" for="dropzone-file">
+<div class="flex flex-col items-center justify-center pt-5 pb-6">
+<svg aria-hidden="true" class="w-8 h-8 mb-4 text-gray-500" fill="none" viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+<p class="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+</div>
+<input class="hidden" id="dropzone-file" name="image" multiple="" type="file"/>
+</label>
+</div>
+</div>
+<form action="#" class="space-y-6" method="POST" enctype="multipart/form-data">
+<div id="error-message" class="text-red-500 text-sm hidden"></div>
+<div id="success-message" class="text-green-500 text-sm hidden"></div>
+<div>
+<label class="block text-sm font-medium text-text-secondary" for="title">Title</label>
+<input class="input mt-1 block w-full" id="title" name="title" placeholder="e.g., Vintage Denim Jacket" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-secondary" for="description">Description</label>
+<textarea class="input mt-1 block w-full" id="description" name="description" placeholder="Describe the item's style, brand, and any unique features." rows="4"></textarea>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium text-text-secondary" for="category">Category</label>
+<select class="input mt-1 block w-full" id="category" name="category">
+<option>Select Category</option>
+<option>Tops</option>
+<option>Bottoms</option>
+<option>Dresses</option>
+<option>Outerwear</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-secondary" for="type">Type</label>
+<select class="input mt-1 block w-full" id="type" name="type">
+<option>Select Type</option>
+<option>Jacket</option>
+<option>T-Shirt</option>
+<option>Jeans</option>
+<option>Sweater</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium text-text-secondary" for="size">Size</label>
+<select class="input mt-1 block w-full" id="size" name="size">
+<option>Select Size</option>
+<option>XS</option>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-secondary" for="condition">Condition</label>
+<select class="input mt-1 block w-full" id="condition" name="condition">
+<option>Select Condition</option>
+<option>New with tags</option>
+<option>Excellent</option>
+<option>Good</option>
+<option>Fair</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-secondary" for="tags">Tags</label>
+<input class="input mt-1 block w-full" id="tags" name="tags" placeholder="Add tags separated by commas (e.g., vintage, denim, jacket)" type="text"/>
+</div>
+<div class="pt-4">
+<button class="button_primary w-full justify-center" type="submit" onclick="handleSubmit(event)">Submit Item</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+
+<script>
+let selectedFile = null;
+
+// Handle file selection
+document.getElementById('dropzone-file').addEventListener('change', function(e) {
+  selectedFile = e.target.files[0];
+  if (selectedFile) {
+    const label = document.querySelector('label[for="dropzone-file"]');
+    label.innerHTML = `
+      <div class="flex flex-col items-center justify-center pt-5 pb-6">
+        <svg aria-hidden="true" class="w-8 h-8 mb-4 text-green-500" fill="none" viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+        <p class="mb-2 text-sm text-green-600"><span class="font-semibold">File selected:</span> ${selectedFile.name}</p>
+        <p class="text-xs text-gray-500">Click to change file</p>
+      </div>
+    `;
+  }
+});
+
+async function handleSubmit(event) {
+  event.preventDefault();
+  
+  const errorMessage = document.getElementById('error-message');
+  const successMessage = document.getElementById('success-message');
+  
+  // Clear previous messages
+  errorMessage.classList.add('hidden');
+  successMessage.classList.add('hidden');
+  
+  // Get form data
+  const title = document.getElementById('title').value;
+  const description = document.getElementById('description').value;
+  const category = document.getElementById('category').value;
+  const type = document.getElementById('type').value;
+  const size = document.getElementById('size').value;
+  const condition = document.getElementById('condition').value;
+  const tags = document.getElementById('tags').value;
+  
+  // Validation
+  if (!title || !category || category === 'Select Category' || !type || type === 'Select Type' || 
+      !size || size === 'Select Size' || !condition || condition === 'Select Condition') {
+    errorMessage.textContent = 'Please fill in all required fields';
+    errorMessage.classList.remove('hidden');
+    return;
+  }
+  
+  // Show loading state
+  const submitButton = event.target;
+  const originalText = submitButton.textContent;
+  submitButton.disabled = true;
+  submitButton.innerHTML = `
+    <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+    </svg>
+    Uploading...
+  `;
+  
+  try {
+    // Create FormData
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('description', description);
+    formData.append('category', category);
+    formData.append('type', type);
+    formData.append('size', size);
+    formData.append('condition', condition);
+    formData.append('tags', tags);
+    
+    if (selectedFile) {
+      formData.append('image', selectedFile);
+    }
+    
+    // Get token from cookie (alternative to localStorage)
+    const token = getCookie('token') || localStorage.getItem('token');
+    
+    if (!token) {
+      throw new Error('Authentication required. Please login again.');
+    }
+    
+    const response = await fetch('/api/items', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`
+        // Don't set Content-Type header for FormData - let browser set it automatically
+      },
+      credentials: 'include', // Include cookies in the request
+      body: formData
+    });
+    
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.message || `Server error: ${response.status}`);
+    }
+    
+    const result = await response.json();
+    
+    successMessage.textContent = 'Item uploaded successfully!';
+    successMessage.classList.remove('hidden');
+    
+    // Reset form
+    document.querySelector('form').reset();
+    selectedFile = null;
+    
+    // Reset file upload display
+    const label = document.querySelector('label[for="dropzone-file"]');
+    label.innerHTML = `
+      <div class="flex flex-col items-center justify-center pt-5 pb-6">
+        <svg aria-hidden="true" class="w-8 h-8 mb-4 text-gray-500" fill="none" viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+        <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+        <p class="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+      </div>
+    `;
+    
+    // Redirect to profile after 2 seconds
+    setTimeout(() => {
+      window.location.href = '/profile';
+    }, 2000);
+    
+  } catch (error) {
+    errorMessage.textContent = error.message || 'Error uploading item. Please try again.';
+    errorMessage.classList.remove('hidden');
+    
+    // If unauthorized, redirect to login
+    if (error.message.includes('Authentication') || error.message.includes('401')) {
+      setTimeout(() => {
+        window.location.href = '/login';
+      }, 2000);
+    }
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = originalText;
+  }
+}
+
+// Helper function to get cookie
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+// Check authentication on page load
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const token = getCookie('token') || localStorage.getItem('token');
+    if (!token) {
+      window.location.href = '/login';
+      return;
+    }
+
+    const response = await fetch('/api/validate-token', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      },
+      credentials: 'include'
+    });
+
+    if (!response.ok) {
+      localStorage.removeItem('token');
+      document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      window.location.href = '/login';
+    }
+  } catch (error) {
+    console.error('Auth check failed:', error);
+    window.location.href = '/login';
+  }
+});
+</script>
+<script src="/js/auth.js"></script>
+<script src="/js/api.js"></script>
+</body>
+</html>

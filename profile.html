@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>ReWear - User Dashboard</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <style type="text/tailwindcss">
+    :root {
+      --primary-color: #14b781;
+      --secondary-color: #f0f2f4;
+      --background-color: #f9f9f9;
+      --text-primary: #111418;
+      --text-secondary: #637488;
+      --accent-color: #e0e7ff;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-primary);
+    }
+    .button_primary {
+      @apply bg-[var(--primary-color)] text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50;
+    }
+    .button_secondary {
+      @apply bg-[var(--secondary-color)] text-[var(--text-primary)] py-2 px-4 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50;
+    }
+    .input {
+      @apply bg-white border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)];
+    }
+    .typography_h1 {
+      @apply text-3xl font-bold text-[var(--text-primary)];
+    }
+    .typography_h2 {
+      @apply text-2xl font-semibold text-[var(--text-primary)];
+    }
+    .typography_body {
+      @apply text-base text-[var(--text-secondary)];
+    }
+    .link {
+      @apply text-[var(--primary-color)] hover:underline;
+    }
+    .header {
+      @apply bg-white shadow-sm py-4;
+    }
+    .nav {
+      @apply flex justify-between items-center;
+    }
+    .nav_links {
+      @apply flex space-x-4;
+    }
+    .nav_link {
+      @apply text-[var(--text-secondary)] hover:text-[var(--text-primary)];
+    }
+    .footer {
+      @apply bg-[var(--secondary-color)] py-4 mt-8;
+    }
+    .footer_text {
+      @apply text-[var(--text-secondary)] text-center;
+    }
+    .card {
+      @apply bg-white rounded-md shadow-md p-6;
+    }
+  </style>
+</head>
+<body class="bg-[var(--background-color)] text-[var(--text-primary)] rounded-md">
+  <div id="loading" class="fixed inset-0 bg-white bg-opacity-75 flex items-center justify-center z-50">
+    <div class="text-center">
+      <svg class="animate-spin h-8 w-8 text-[var(--primary-color)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+      <p>Loading...</p>
+    </div>
+  </div>
+  <div class="flex min-h-screen">
+    <aside class="w-64 bg-white shadow-md p-6 flex flex-col justify-between">
+      <div>
+        <h1 class="text-3xl font-bold text-[var(--primary-color)] mb-10">ReWear</h1>
+        <nav class="flex flex-col space-y-2">
+          <a class="nav_link flex items-center space-x-3 p-2 rounded-md" href="landing_page.html">
+            <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span>Home</span>
+          </a>
+          <a class="nav_link flex items-center space-x-3 p-2 rounded-md" href="my_items.html">
+            <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12h14"></path>
+              <path d="M12 5v14"></path>
+            </svg>
+            <span>My Items</span>
+          </a>
+          <a class="nav_link flex items-center space-x-3 p-2 rounded-md" href="swaps.html" onclick="showSwaps()">
+            <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+              <path d="m17 2 4 4-4 4"></path>
+              <path d="M3 12h18"></path>
+              <path d="m7 22-4-4 4-4"></path>
+            </svg>
+            <span>Swaps</span>
+          </a>
+          <a class="nav_link flex items-center space-x-3 p-2 rounded-md bg-[var(--accent-color)] text-[var(--primary-color)] font-semibold" href="profile.html">
+            <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>Profile</span>
+          </a>
+          <button class="nav_link flex items-center space-x-3 p-2 rounded-md text-red-600 hover:bg-red-50" onclick="auth.logout()">
+            <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" x2="9" y1="12" y2="12"></line>
+            </svg>
+            <span>Logout</span>
+          </button>
+        </nav>
+      </div>
+    </aside>
+    <main class="flex-1 p-8">
+      <header class="flex justify-between items-center mb-8">
+        <h2 class="typography_h1">Dashboard</h2>
+        <a href="/new-item" class="button_primary">Upload Item</a>
+      </header>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-2">
+          <div class="card mb-8">
+            <div class="flex items-center space-x-6">
+              <div class="w-32 h-32 rounded-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center text-white text-4xl font-bold" id="user-avatar">
+                ?
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-[var(--text-primary)]" id="user-name">Loading...</h3>
+                <p class="typography_body" id="user-email">Loading...</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="card text-center">
+              <p class="text-3xl font-bold text-[var(--primary-color)]" id="user-points">0</p>
+              <p class="typography_body">Points</p>
+            </div>
+            <div class="card text-center">
+              <p class="text-3xl font-bold text-[var(--primary-color)]" id="items-uploaded">0</p>
+              <p class="typography_body">Items Uploaded</p>
+            </div>
+            <div class="card text-center">
+              <p class="text-3xl font-bold text-[var(--primary-color)]" id="swaps-completed">0</p>
+              <p class="typography_body">Swaps Completed</p>
+            </div>
+          </div>
+          <div>
+            <h3 class="typography_h2 mb-4">My Items</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="user-items">
+              <div class="text-center py-8">
+                <p class="typography_body">Loading your items...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-1">
+          <div class="card mb-8">
+            <h3 class="typography_h2 mb-4">Ongoing Swaps</h3>
+            <div id="ongoing-swaps">
+              <p class="typography_body">Loading swaps...</p>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="typography_h2 mb-4">Completed Swaps</h3>
+            <div id="completed-swaps">
+              <p class="typography_body">Loading swaps...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/auth.js"></script>
+  <script src="/js/api.js"></script>
+  <script>
+    // Load user profile data
+    async function loadProfile() {
+      try {
+        const [profile, stats, items, swaps] = await Promise.all([
+          api.getUserProfile(),
+          api.getUserStats(),
+          api.getUserItems(),
+          api.getUserSwaps()
+        ]);
+
+        // Update profile info
+        document.getElementById('user-name').textContent = profile.name;
+        document.getElementById('user-email').textContent = profile.email;
+        document.getElementById('user-avatar').textContent = profile.name.charAt(0).toUpperCase();
+
+        // Update stats
+        document.getElementById('user-points').textContent = stats.points || 0;
+        document.getElementById('items-uploaded').textContent = stats.items_uploaded || 0;
+        document.getElementById('swaps-completed').textContent = stats.swaps_completed || 0;
+
+        // Update items
+        displayUserItems(items);
+        
+        // Update swaps
+        displaySwaps(swaps);
+        
+      } catch (error) {
+        console.error('Error loading profile:', error);
+        alert('Error loading profile data. Please try again.');
+      } finally {
+        document.getElementById('loading').style.display = 'none';
+      }
+    }
+
+    function displayUserItems(items) {
+      const container = document.getElementById('user-items');
+      
+      if (!items || items.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full text-center py-8">
+            <p class="typography_body mb-4">You haven't uploaded any items yet.</p>
+            <a href="/new-item" class="button_primary">Upload Your First Item</a>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = items.map(item => `
+        <div class="card p-4 group">
+          <div class="relative">
+            <img alt="${item.title}" class="w-full h-56 object-cover rounded-md mb-4" 
+                 src="${item.image_url || 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'}"
+                 onerror="this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'"/>
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-md">
+              <button class="bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600" onclick="deleteItem('${item.id}')">Remove</button>
+            </div>
+          </div>
+          <p class="font-semibold text-[var(--text-primary)]">${item.title}</p>
+          <p class="text-sm typography_body">${item.size} • ${item.condition}</p>
+        </div>
+      `).join('');
+    }
+
+    function displaySwaps(swaps) {
+      const ongoingContainer = document.getElementById('ongoing-swaps');
+      const completedContainer = document.getElementById('completed-swaps');
+      
+      const ongoing = swaps.filter(swap => swap.status === 'pending' || swap.status === 'accepted');
+      const completed = swaps.filter(swap => swap.status === 'completed');
+      
+      if (ongoing.length === 0) {
+        ongoingContainer.innerHTML = '<p class="typography_body">No ongoing swaps</p>';
+      } else {
+        ongoingContainer.innerHTML = ongoing.map(swap => `
+          <div class="flex items-center space-x-4 mb-4">
+            <img alt="${swap.owner_item_title}" class="w-16 h-16 object-cover rounded-md" 
+                 src="${swap.owner_item_image || 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80'}"/>
+            <div>
+              <p class="font-semibold text-[var(--text-primary)]">${swap.owner_item_title}</p>
+              <p class="typography_body">with ${swap.owner_name}</p>
+              <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-600 bg-yellow-200">
+                ${swap.status === 'pending' ? 'Pending' : 'In Progress'}
+              </span>
+            </div>
+          </div>
+        `).join('');
+      }
+      
+      if (completed.length === 0) {
+        completedContainer.innerHTML = '<p class="typography_body">No completed swaps yet</p>';
+      } else {
+        completedContainer.innerHTML = completed.map(swap => `
+          <div class="flex items-center space-x-4 mb-4">
+            <img alt="${swap.owner_item_title}" class="w-16 h-16 object-cover rounded-md" 
+                 src="${swap.owner_item_image || 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80'}"/>
+            <div>
+              <p class="font-semibold text-[var(--text-primary)]">${swap.owner_item_title}</p>
+              <p class="typography_body">with ${swap.owner_name}</p>
+              <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-green-600 bg-green-200">
+                Completed
+              </span>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    async function deleteItem(itemId) {
+      if (!confirm('Are you sure you want to delete this item?')) {
+        return;
+      }
+      
+      try {
+        await api.deleteItem(itemId);
+        // Reload items
+        const items = await api.getUserItems();
+        displayUserItems(items);
+        
+        // Update stats
+        const stats = await api.getUserStats();
+        document.getElementById('items-uploaded').textContent = stats.items_uploaded || 0;
+      } catch (error) {
+        alert('Error deleting item. Please try again.');
+      }
+    }
+
+    function showSwaps() {
+      // This could open a modal or navigate to a dedicated swaps page
+      alert('Swaps functionality - this could open a detailed swaps view');
+    }
+
+    // Load profile when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      if (auth.requireAuth()) {
+        loadProfile();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>ReWear - Swap, Style, Sustain</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <style type="text/tailwindcss">
+    :root {
+      --primary-color: #14b781;
+      --secondary-color: #f0f2f4;
+      --background-color: #f9f9f9;
+      --text-primary: #111418;
+      --text-secondary: #637488;
+      --accent-color: #e0e7ff;
+    }
+    body {
+      @apply font-sans bg-[var(--background-color)] text-[var(--text-primary)] rounded-md;
+    }
+    .main_container {
+      @apply container mx-auto px-4 py-8;
+    }
+    .card {
+      @apply bg-white rounded-md shadow-md p-6;
+    }
+    .button_primary {
+      @apply bg-[var(--primary-color)] text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50;
+    }
+    .button_secondary {
+      @apply bg-[var(--secondary-color)] text-[var(--text-primary)] py-2 px-4 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50;
+    }
+    .input {
+      @apply bg-white border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)];
+    }
+    .typography_h1 {
+      @apply text-3xl font-bold text-[var(--text-primary)];
+    }
+    .typography_h2 {
+      @apply text-2xl font-semibold text-[var(--text-primary)];
+    }
+    .typography_body {
+      @apply text-base text-[var(--text-secondary)];
+    }
+    .link {
+      @apply text-[var(--primary-color)] hover:underline;
+    }
+    .header {
+      @apply bg-white shadow-sm py-4;
+    }
+    .nav {
+      @apply flex justify-between items-center;
+    }
+    .nav_links {
+      @apply flex space-x-4;
+    }
+    .nav_link {
+      @apply text-[var(--text-secondary)] hover:text-[var(--text-primary)];
+    }
+    .footer {
+      @apply bg-[var(--secondary-color)] py-4 mt-8;
+    }
+    .footer_text {
+      @apply text-[var(--text-secondary)] text-center;
+    }
+  </style>
+</head>
+<body>
+  <div class="flex min-h-screen flex-col">
+    <header class="header sticky top-0 z-50">
+      <div class="container mx-auto px-4">
+        <nav class="nav">
+          <div class="flex items-center gap-3">
+            <a href="landing_page.html">
+              <svg class="h-8 w-8 text-[var(--primary-color)]" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
+              </svg>
+            </a>
+            <h1 class="text-2xl font-bold text-[var(--text-primary)]">ReWear</h1>
+          </div>
+          <div class="nav_links hidden md:flex items-center space-x-8">
+            <a class="nav_link" href="/#how-it-works">How it Works</a>
+      
+            <a class="nav_link" href="/new-item">List an Item</a>
+          </div>
+          <div class="hidden md:flex items-center gap-4">
+            <a href="/login" class="button_secondary" id="login-btn">Login</a>
+            <a href="/signup" class="button_primary" id="signup-btn">Start Swapping</a>
+            <button class="button_secondary" id="profile-btn" style="display: none;" onclick="window.location.href='/profile'">Profile</button>
+            <button class="button_secondary" id="logout-btn" style="display: none;" onclick="auth.logout()">Logout</button>
+          </div>
+          <button class="md:hidden">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+    <main class="flex-grow">
+      <section id="hero" class="relative bg-cover bg-center py-40 text-white" style='background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")'>
+        <div class="container mx-auto px-4 text-center">
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">Swap, Style, Sustain</h1>
+          <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl">Join a community of fashion lovers who are changing the way we shop. Exchange clothes, refresh your wardrobe, and reduce waste.</p>
+          <a href="/signup" class="button_primary mt-8 px-8 py-3 text-lg font-bold" id="hero-cta">Start Swapping</a>
+        </div>
+      </section>
+
+      <section id="how-it-works" class="main_container">
+        <h2 class="typography_h2 text-center mb-10">How It Works</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="card text-center p-6">
+            <div class="text-4xl mb-4">1</div>
+            <h3 class="text-xl font-bold mb-2">Create Account</h3>
+            <p class="typography_body">Sign up to join our sustainable fashion community</p>
+          </div>
+          <div class="card text-center p-6">
+            <div class="text-4xl mb-4">2</div>
+            <h3 class="text-xl font-bold mb-2">List Items</h3>
+            <p class="typography_body">Upload clothes you're ready to swap with others</p>
+          </div>
+          <div class="card text-center p-6">
+            <div class="text-4xl mb-4">3</div>
+            <h3 class="text-xl font-bold mb-2">Start Swapping</h3>
+            <p class="typography_body">Find new favorites and arrange swaps</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="featured" class="main_container">
+        <h2 class="typography_h2 text-center mb-10">Featured Items</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="card group overflow-hidden cursor-pointer" onclick="viewItem(1)">
+            <div class="w-full aspect-square bg-cover bg-center rounded-md transform transition-transform duration-300 group-hover:scale-105" 
+                 style='background-image: url("https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&auto=format&fit=crop&w=736&q=80")'></div>
+            <div class="mt-4">
+              <h3 class="font-semibold text-lg">Vintage Denim Jacket</h3>
+              <p class="typography_body">Size M, Excellent</p>
+              <p class="text-sm text-[var(--text-secondary)]">by Emily Carter</p>
+            </div>
+          </div>
+          <div class="card group overflow-hidden cursor-pointer" onclick="viewItem(2)">
+            <div class="w-full aspect-square bg-cover bg-center rounded-md transform transition-transform duration-300 group-hover:scale-105" 
+                 style='background-image: url("https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80")'></div>
+            <div class="mt-4">
+              <h3 class="font-semibold text-lg">Floral Print Dress</h3>
+              <p class="typography_body">Size S, Good</p>
+              <p class="text-sm text-[var(--text-secondary)]">by Emily Carter</p>
+            </div>
+          </div>
+          <div class="card group overflow-hidden cursor-pointer" onclick="viewItem(3)">
+            <div class="w-full aspect-square bg-cover bg-center rounded-md transform transition-transform duration-300 group-hover:scale-105" 
+                 style='background-image: url("https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=880&q=80")'></div>
+            <div class="mt-4">
+              <h3 class="font-semibold text-lg">Leather Ankle Boots</h3>
+              <p class="typography_body">Size 7, New with tags</p>
+              <p class="text-sm text-[var(--text-secondary)]">by Emily Carter</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="list-item" class="bg-[var(--accent-color)] py-20">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="typography_h1">Ready to Refresh Your Wardrobe?</h2>
+          <div class="mt-8 flex justify-center gap-4 flex-wrap">
+            <a href="/new-item" class="button_primary px-6 py-3" id="list-item-btn">List an Item</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+          <p class="footer_text">© 2024 ReWear. All rights reserved. by X-Cution</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+<script>
+// Update navigation based on auth status
+function updateNavigation() {
+  const loginBtn = document.getElementById('login-btn');
+  const signupBtn = document.getElementById('signup-btn');
+  const profileBtn = document.getElementById('profile-btn');
+  const logoutBtn = document.getElementById('logout-btn');
+  const heroCta = document.getElementById('hero-cta');
+  const listItemBtn = document.getElementById('list-item-btn');
+  
+  if (auth.isAuthenticated()) {
+    loginBtn.style.display = 'none';
+    signupBtn.style.display = 'none';
+    profileBtn.style.display = 'inline-block';
+    logoutBtn.style.display = 'inline-block';
+    heroCta.href = '/profile';
+    heroCta.textContent = 'Go to Profile';
+    listItemBtn.href = '/new-item';
+  } else {
+    loginBtn.style.display = 'inline-block';
+    signupBtn.style.display = 'inline-block';
+    profileBtn.style.display = 'none';
+    logoutBtn.style.display = 'none';
+    heroCta.href = '/signup';
+    heroCta.textContent = 'Start Swapping';
+    listItemBtn.href = '/signup';
+  }
+}
+
+function viewItem(itemId) {
+  // This could open a modal or navigate to item detail page
+  if (auth.isAuthenticated()) {
+    alert(`Item details for item ${itemId} - this could open a detailed view`);
+  } else {
+    window.location.href = '/signup';
+  }
+}
+
+// Initialize page
+document.addEventListener('DOMContentLoaded', () => {
+  updateNavigation();
+});
+</script>
+<script src="/js/auth.js"></script>
+</body>
+</html>

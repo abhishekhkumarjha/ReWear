@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>ReWear - Create Account</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <style type="text/tailwindcss">
+    :root {
+      --primary-color: #14b781;
+      --secondary-color: #f0f2f4;
+      --background-color: #f9f9f9;
+      --text-primary: #111418;
+      --text-secondary: #637488;
+      --accent-color: #e0e7ff;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-primary);
+    }
+    .button_primary {
+      @apply bg-[var(--primary-color)] text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50;
+    }
+    .button_secondary {
+      @apply bg-[var(--secondary-color)] text-[var(--text-primary)] py-2 px-4 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50;
+    }
+    .input {
+      @apply bg-white border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)];
+    }
+    .link {
+      @apply text-[var(--primary-color)] hover:underline;
+    }
+    .header {
+      @apply bg-white shadow-sm py-4;
+    }
+    .nav {
+      @apply flex justify-between items-center container mx-auto px-4;
+    }
+    .nav_links {
+      @apply flex space-x-8;
+    }
+    .nav_link {
+      @apply text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-300;
+    }
+    .card {
+      @apply bg-white rounded-lg shadow-lg p-8;
+    }
+  </style>
+</head>
+<body class="bg-[var(--background-color)] text-[var(--text-primary)]">
+  <div class="flex flex-col min-h-screen">
+    <header class="header">
+      <nav class="nav">
+        <a class="flex items-center gap-2" href="landing_page.html">
+          <svg class="h-8 w-8 text-[var(--primary-color)]" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
+          </svg>
+          <h1 class="text-2xl font-bold">ReWear</h1>
+        </a>
+        <div class="hidden md:flex items-center space-x-8">
+          <div class="nav_links">
+            <a class="nav_link" href="landing_page.html#browse">Browse</a>
+            <a class="nav_link" href="landing_page.html#how-it-works">How it works</a>
+            <a class="nav_link" href="#">Help</a>
+          </div>
+          <a class="button_secondary" href="login.html">Log in</a>
+        </div>
+        <button class="md:hidden block">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+          </svg>
+        </button>
+      </nav>
+    </header>
+    <main class="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-md w-full space-y-8">
+        <div class="card">
+          <div class="text-center">
+            <h2 class="text-3xl font-bold text-[var(--text-primary)]">Create your account</h2>
+            <p class="mt-2 text-sm text-[var(--text-secondary)]">
+              Join our community and start swapping!
+            </p>
+          </div>
+          <form action="#" class="mt-8 space-y-6" method="POST">
+            <div id="error-message" class="text-red-500 text-sm hidden"></div>
+            <div class="rounded-md shadow-sm -space-y-px">
+              <div>
+                <label class="sr-only" for="name">Name</label>
+                <input class="input appearance-none rounded-none relative block w-full px-3 py-3 border-gray-300 placeholder-gray-500 text-[var(--text-primary)] rounded-t-md focus:outline-none focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] focus:z-10 sm:text-sm" id="name" name="name" placeholder="Full Name" required="" type="text"/>
+              </div>
+              <div>
+                <label class="sr-only" for="email-address">Email address</label>
+                <input autocomplete="email" class="input appearance-none rounded-none relative block w-full px-3 py-3 border-gray-300 placeholder-gray-500 text-[var(--text-primary)] focus:outline-none focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] focus:z-10 sm:text-sm" id="email-address" name="email" placeholder="Email address" required="" type="email"/>
+              </div>
+              <div>
+                <label class="sr-only" for="password">Password</label>
+                <input autocomplete="current-password" class="input appearance-none rounded-none relative block w-full px-3 py-3 border-gray-300 placeholder-gray-500 text-[var(--text-primary)] rounded-b-md focus:outline-none focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] focus:z-10 sm:text-sm" id="password" name="password" placeholder="Password" required="" type="password"/>
+              </div>
+            </div>
+            <div>
+              <button class="button_primary group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[var(--primary-color)] hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" type="submit" onclick="handleSignup(event)">
+                Sign up
+              </button>
+            </div>
+          </form>
+          <p class="mt-6 text-center text-xs text-[var(--text-secondary)]">
+            Already have an account? <a href="login.html" class="link">Log in</a>
+          </p>
+          <p class="mt-2 text-center text-xs text-[var(--text-secondary)]">
+            By signing up, you agree to our
+            <a class="link font-medium" href="#">Terms of Service</a> and
+            <a class="link font-medium" href="#">Privacy Policy</a>.
+          </p>
+        </div>
+      </div>
+    </main>
+  </div>
+<script>
+async function handleSignup(event) {
+  event.preventDefault();
+  
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email-address').value;
+  const password = document.getElementById('password').value;
+  const errorMessage = document.getElementById('error-message');
+  
+  // Clear previous errors
+  errorMessage.classList.add('hidden');
+  
+  if (!name || !email || !password) {
+    errorMessage.textContent = 'Please fill in all fields';
+    errorMessage.classList.remove('hidden');
+    return;
+  }
+  
+  if (password.length < 6) {
+    errorMessage.textContent = 'Password must be at least 6 characters long';
+    errorMessage.classList.remove('hidden');
+    return;
+  }
+  
+  // Show loading state
+  const submitButton = event.target;
+  const originalText = submitButton.textContent;
+  submitButton.disabled = true;
+  submitButton.innerHTML = `
+    <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+    </svg>
+    Creating account...
+  `;
+  
+  try {
+    const result = await auth.signup(name, email, password);
+    
+    if (result.success) {
+      window.location.href = '/profile';
+    } else {
+      errorMessage.textContent = result.message;
+      errorMessage.classList.remove('hidden');
+    }
+  } catch (error) {
+    errorMessage.textContent = 'An unexpected error occurred. Please try again.';
+    errorMessage.classList.remove('hidden');
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = originalText;
+  }
+}
+</script>
+<script src="/js/auth.js"></script>
+</body>
+</html>

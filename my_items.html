@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>ReWear - My Items</title>
+  <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+  <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800" onload="this.rel='stylesheet'" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <style type="text/tailwindcss">
+    :root {
+      --primary-color: #14b781;
+      --background-color: #f9f9f9;
+      --text-primary: #333333;
+      --text-secondary: #666666;
+      --accent-color: #e6f7f2;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-primary);
+    }
+    .nav-item {
+      @apply text-[var(--text-secondary)] hover:text-[var(--primary-color)] px-4 py-2;
+    }
+    .nav-item-active {
+      @apply bg-[var(--accent-color)] text-[var(--primary-color)] rounded-full px-4 py-2;
+    }
+    .button_primary {
+      @apply bg-[var(--primary-color)] text-white rounded-full px-6 py-3 text-base font-bold hover:bg-green-600;
+    }
+    .typography_h1 {
+      @apply text-3xl font-bold text-[var(--text-primary)];
+    }
+    .typography_body {
+      @apply text-base text-[var(--text-secondary)];
+    }
+  </style>
+</head>
+<body class="bg-[var(--background-color)]">
+  <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+      <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 px-10 py-4 shadow-sm">
+        <div class="flex items-center gap-4 text-[var(--text-primary)]">
+          <div class="w-8 h-8 text-[var(--primary-color)]">
+            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
+            </svg>
+          </div>
+          <h1 class="text-2xl font-bold tracking-tight">ReWear</h1>
+        </div>
+        <nav class="hidden md:flex items-center gap-2">
+          <a class="nav-item" href="landing_page.html">Home</a>
+          <a class="nav-item" href="profile.html">Profile</a>
+          <a class="nav-item-active" href="my_items.html">My Items</a>
+          <a class="nav-item" href="swaps.html">Swap</a>
+ <a class="nav-item" href="browse.html">Browse</a>         
+ <a class="nav-item" href="login.html" onclick="auth.logout()">Logout</a>
+        </nav>
+        <div class="flex items-center gap-4">
+          <button class="flex items-center justify-center rounded-full h-10 w-10 bg-gray-100 hover:bg-gray-200 text-gray-600">
+            <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+              <path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"></path>
+            </svg>
+          </button>
+          <div id="user-avatar" class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-[var(--primary-color)]"></div>
+        </div>
+      </header>
+      <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="flex flex-wrap justify-between items-center gap-4 mb-8">
+          <h2 class="typography_h1">My Items</h2>
+          <a href="/new-item" class="button_primary">Add New Item</a>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6" id="items-container">
+          <!-- Items will be loaded here -->
+          <div class="text-center py-8">
+            <p class="typography_body">Loading your items...</p>
+          </div>
+        </div>
+        <div class="flex items-center justify-center pt-12">
+          <div id="pagination-controls"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="/js/auth.js"></script>
+  <script src="/js/api.js"></script>
+  <script>
+    // Load user items when page loads
+    document.addEventListener('DOMContentLoaded', async () => {
+      if (auth.requireAuth()) {
+        try {
+          // Load user profile for avatar
+          const profile = await api.getUserProfile();
+          const avatar = document.getElementById('user-avatar');
+          if (profile && profile.name) {
+            avatar.textContent = profile.name.charAt(0).toUpperCase();
+            avatar.classList.add('flex', 'items-center', 'justify-center', 'text-white', 'text-xl', 'font-bold');
+            avatar.style.backgroundColor = `hsl(${Math.floor(Math.random() * 360)}, 70%, 50%)`;
+          }
+
+          // Load user items
+          const items = await api.getUserItems();
+          displayItems(items);
+        } catch (error) {
+          console.error('Error loading items:', error);
+          document.getElementById('items-container').innerHTML = `
+            <div class="col-span-full text-center py-8">
+              <p class="typography_body">Error loading items. Please try again.</p>
+            </div>
+          `;
+        }
+      }
+    });
+
+    function displayItems(items) {
+      const container = document.getElementById('items-container');
+      
+      if (!items || items.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full text-center py-8">
+            <p class="typography_body mb-4">You haven't uploaded any items yet.</p>
+            <a href="/new-item" class="button_primary">Upload Your First Item</a>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = items.map(item => `
+        <div class="group relative flex flex-col rounded-lg shadow-md overflow-hidden bg-white hover:shadow-xl transition-shadow duration-300">
+          <div class="w-full bg-center bg-no-repeat aspect-[4/5] bg-cover" style="background-image: url('${item.image_url || 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'}')"></div>
+          <div class="p-4 flex-grow">
+            <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-1">${item.title}</h3>
+            <span class="inline-block ${
+              item.status === 'available' ? 'bg-green-100 text-green-800' : 
+              item.status === 'pending' ? 'bg-yellow-100 text-yellow-800' : 
+              'bg-gray-100 text-gray-800'
+            } text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">
+              ${item.status === 'available' ? 'Available' : 
+                item.status === 'pending' ? 'Pending' : 
+                'Unavailable'}
+            </span>
+          </div>
+          ${item.status === 'available' ? `
+          <div class="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <button class="bg-white rounded-full p-2 shadow-md hover:bg-gray-100" onclick="editItem('${item.id}')">
+              <svg class="bi bi-pencil-fill" fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"></path>
+              </svg>
+            </button>
+            <button class="bg-white rounded-full p-2 shadow-md hover:bg-gray-100" onclick="deleteItem('${item.id}')">
+              <svg class="bi bi-trash-fill" fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"></path>
+              </svg>
+            </button>
+          </div>
+          ` : ''}
+        </div>
+      `).join('');
+    }
+
+    async function deleteItem(itemId) {
+      if (!confirm('Are you sure you want to delete this item?')) {
+        return;
+      }
+      
+      try {
+        await api.deleteItem(itemId);
+        // Reload items
+        const items = await api.getUserItems();
+        displayItems(items);
+      } catch (error) {
+        alert('Error deleting item. Please try again.');
+      }
+    }
+
+    function editItem(itemId) {
+      // In a real app, this would navigate to an edit page or open a modal
+      alert(`Edit item ${itemId} - this would open an edit form`);
+    }
+  </script>
+</body>
+</html>

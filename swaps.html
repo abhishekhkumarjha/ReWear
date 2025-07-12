@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ReWear - Swaps</title>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Plus+Jakarta+Sans:wght@400;500;700;800" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --primary-color: #b7e0d2;
+        --background-color: #f9f9f9;
+        --text-primary: #333333;
+        --text-secondary: #666666;
+        --accent-color: #e6f2ed;
+        --swap-background: #ffffff;
+        --swap-border: #d1d5db;
+        --swap-text: #374151;
+        --swap-hover: #f3f4f6;
+        --swap-active: #e5e7eb;
+      }
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: var(--swap-background);
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        border-radius: 0.5rem;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+      .dropdown-option {
+        padding: 0.75rem 1rem;
+        cursor: pointer;
+      }
+      .dropdown-option:hover {
+        background-color: var(--swap-hover);
+      }
+    </style>
+</head>
+<body class="bg-[var(--background-color)] text-[var(--text-primary)]">
+<div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[var(--swap-border)] px-10 py-4 shadow-sm">
+<div class="flex items-center gap-3">
+<div class="text-[var(--primary-color)]">
+<svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.41 12.59L12 11.17l-3.41 3.42-1.41-1.41L10.59 10 7.17 6.59l1.41-1.41L12 8.17l3.41-3.42 1.41 1.41L13.41 10l3.42 3.41-1.42 1.18z"></path>
+</svg>
+</div>
+<h1 class="text-2xl font-bold tracking-tight text-[var(--text-primary)]">ReWear</h1>
+</div>
+<nav class="flex items-center gap-8">
+<a class="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors" href="landing_page.html">Home</a>
+<a class="text-sm font-bold text-[var(--primary-color)]" href="#">Swaps</a>
+<a class="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors" href="profile.html">Profile</a>
+<a class="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors" href="my_items.html">My Items</a>
+<a class="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors" href="login.html">Log Out</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="relative rounded-full p-2 text-[var(--text-secondary)] hover:bg-[var(--swap-hover)] hover:text-[var(--text-primary)] transition-colors">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341A6.002 6.002 0 006 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="absolute top-1 right-1 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white"></span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD1I7Do_1Q_7UXHZBTAMT302kgkD5IketuSzWL6V5xKMZNNoG7xqW1CUwLNF4LJfItKkszTvdWVnVjm7ORNIpsjyODSu4oPNYlykqpz0KQP2uT2AszQ8D9b9bC7UZ-m-KOhW0O2wxvIsuPU2ll5_7cGdMxaDY_P66I9iGFSdAU-M2tWieDQVrXMA10xxZVl_sghW7g8IQNLR6WokSuRwO1m3Mai9s2vMQMcrNMILQ87vX0n3LBzDPrt0SCgO53yhlctm_2REeHo19lM");'></div>
+</div>
+</header>
+<main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="max-w-7xl mx-auto">
+<div class="mb-8">
+<h2 class="text-4xl font-extrabold tracking-tight text-[var(--text-primary)]">Available Swaps</h2>
+<p class="mt-2 text-lg text-[var(--text-secondary)]">Browse through a curated collection of pre-loved items ready for a new home.</p>
+</div>
+<div class="flex flex-col md:flex-row gap-6 mb-8">
+<div class="relative flex-grow">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<svg class="h-5 w-5 text-[var(--text-secondary)]" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<input id="searchInput" class="block w-full rounded-lg border-[var(--swap-border)] bg-[var(--swap-background)] pl-10 pr-4 py-3 text-sm placeholder:text-[var(--text-secondary)] focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]" placeholder="Search for items like 'Vintage Denim Jacket'..." type="search"/>
+</div>
+<div class="flex items-center gap-4">
+<div class="dropdown relative">
+<button class="flex items-center gap-2 rounded-lg border border-[var(--swap-border)] bg-[var(--swap-background)] px-4 py-2 text-sm font-medium text-[var(--swap-text)] hover:bg-[var(--swap-hover)]">
+  Category
+  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+  </svg>
+</button>
+<div class="dropdown-content">
+  <div class="dropdown-option" data-filter="category" data-value="">All Categories</div>
+  <div class="dropdown-option" data-filter="category" data-value="Outerwear">Outerwear</div>
+  <div class="dropdown-option" data-filter="category" data-value="Dresses">Dresses</div>
+  <div class="dropdown-option" data-filter="category" data-value="Shoes">Shoes</div>
+  <div class="dropdown-option" data-filter="category" data-value="Tops">Tops</div>
+  <div class="dropdown-option" data-filter="category" data-value="Bottoms">Bottoms</div>
+  <div class="dropdown-option" data-filter="category" data-value="Accessories">Accessories</div>
+</div>
+</div>
+
+<div class="dropdown relative">
+<button class="flex items-center gap-2 rounded-lg border border-[var(--swap-border)] bg-[var(--swap-background)] px-4 py-2 text-sm font-medium text-[var(--swap-text)] hover:bg-[var(--swap-hover)]">
+  Size
+  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+  </svg>
+</button>
+<div class="dropdown-content">
+  <div class="dropdown-option" data-filter="size" data-value="">All Sizes</div>
+  <div class="dropdown-option" data-filter="size" data-value="XS">XS</div>
+  <div class="dropdown-option" data-filter="size" data-value="S">S</div>
+  <div class="dropdown-option" data-filter="size" data-value="M">M</div>
+  <div class="dropdown-option" data-filter="size" data-value="L">L</div>
+  <div class="dropdown-option" data-filter="size" data-value="XL">XL</div>
+  <div class="dropdown-option" data-filter="size" data-value="One Size">One Size</div>
+</div>
+</div>
+
+<div class="dropdown relative">
+<button class="flex items-center gap-2 rounded-lg border border-[var(--swap-border)] bg-[var(--swap-background)] px-4 py-2 text-sm font-medium text-[var(--swap-text)] hover:bg-[var(--swap-hover)]">
+  Condition
+  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+  </svg>
+</button>
+<div class="dropdown-content">
+  <div class="dropdown-option" data-filter="condition" data-value="">All Conditions</div>
+  <div class="dropdown-option" data-filter="condition" data-value="New">New</div>
+  <div class="dropdown-option" data-filter="condition" data-value="Like New">Like New</div>
+  <div class="dropdown-option" data-filter="condition" data-value="Good">Good</div>
+  <div class="dropdown-option" data-filter="condition" data-value="Fair">Fair</div>
+  <div class="dropdown-option" data-filter="condition" data-value="Poor">Poor</div>
+</div>
+</div>
+</div>
+</div>
+<div id="itemsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+<!-- Items will be loaded here dynamically -->
+</div>
+</div>
+</main>
+</div>
+</div>
+
+<script>
+// Global variables to store filters and items
+let currentFilters = {
+  category: '',
+  size: '',
+  condition: '',
+  search: ''
+};
+let allItems = [];
+
+// DOM elements
+const itemsContainer = document.getElementById('itemsContainer');
+const searchInput = document.getElementById('searchInput');
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', async () => {
+  // Load items from the server
+  await fetchItems();
+  
+  // Set up event listeners
+  setupEventListeners();
+});
+
+// Fetch items from the server
+async function fetchItems() {
+  try {
+    // Build query string from filters
+    const queryParams = new URLSearchParams();
+    if (currentFilters.category) queryParams.append('category', currentFilters.category);
+    if (currentFilters.size) queryParams.append('size', currentFilters.size);
+    if (currentFilters.condition) queryParams.append('condition', currentFilters.condition);
+    if (currentFilters.search) queryParams.append('search', currentFilters.search);
+    
+    const response = await fetch(`/api/items?${queryParams.toString()}`);
+    if (!response.ok) throw new Error('Failed to fetch items');
+    
+    allItems = await response.json();
+    renderItems(allItems);
+  } catch (error) {
+    console.error('Error fetching items:', error);
+    alert('Failed to load items. Please try again later.');
+  }
+}
+
+// Render items to the DOM
+function renderItems(items) {
+  itemsContainer.innerHTML = '';
+  
+  if (items.length === 0) {
+    itemsContainer.innerHTML = '<p class="col-span-full text-center text-gray-500 py-8">No items found matching your criteria.</p>';
+    return;
+  }
+  
+  items.forEach(item => {
+    const itemElement = document.createElement('div');
+    itemElement.className = 'group relative flex flex-col overflow-hidden rounded-lg bg-[var(--swap-background)] shadow-md transition-shadow hover:shadow-xl';
+    itemElement.innerHTML = `
+      <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden">
+        <img alt="${item.title}" class="object-cover object-center w-full h-full group-hover:scale-105 transition-transform duration-300" src="${item.image_url || 'https://via.placeholder.com/300x300?text=No+Image'}">
+      </div>
+      <div class="p-4 flex flex-col flex-grow">
+        <h3 class="text-base font-semibold text-[var(--text-primary)]">${item.title}</h3>
+        <p class="mt-1 text-sm text-[var(--text-secondary)]">Size ${item.size}, ${item.condition} Condition</p>
+        <button data-item-id="${item.id}" class="swap-btn mt-4 w-full bg-[var(--primary-color)] text-white font-bold py-2 px-4 rounded-lg hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--primary-color)]">
+          Swap
+        </button>
+      </div>
+    `;
+    itemsContainer.appendChild(itemElement);
+  });
+  
+  // Add event listeners to swap buttons
+  document.querySelectorAll('.swap-btn').forEach(btn => {
+    btn.addEventListener('click', handleSwapClick);
+  });
+}
+
+// Handle swap button click
+async function handleSwapClick(event) {
+  const itemId = event.target.getAttribute('data-item-id');
+  
+  try {
+    // First, fetch the user's items to offer in swap
+    const response = await fetch('/api/items/user', {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      }
+    });
+    
+    if (!response.ok) throw new Error('Failed to fetch user items');
+    
+    const userItems = await response.json();
+    
+    if (userItems.length === 0) {
+      alert('You need to add items to your inventory before you can swap!');
+      return;
+    }
+    
+    // For simplicity, we'll just use the first item the user has
+    // In a real app, you'd want to let the user select which item to offer
+    const requesterItemId = userItems[0].id;
+    
+    // Create the swap request
+    const swapResponse = await fetch('/api/swaps', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      },
+      body: JSON.stringify({
+        ownerItemId: itemId,
+        requesterItemId: requesterItemId
+      })
+    });
+    
+    if (!swapResponse.ok) throw new Error('Failed to create swap request');
+    
+    const result = await swapResponse.json();
+    alert('Swap request sent successfully!');
+    
+    // Refresh the items list
+    await fetchItems();
+  } catch (error) {
+    console.error('Error creating swap:', error);
+    alert('Failed to create swap request. Please try again.');
+  }
+}
+
+// Set up all event listeners
+function setupEventListeners() {
+  // Search input
+  searchInput.addEventListener('input', debounce(() => {
+    currentFilters.search = searchInput.value.trim();
+    fetchItems();
+  }, 300));
+  
+  // Filter dropdown options
+  document.querySelectorAll('.dropdown-option').forEach(option => {
+    option.addEventListener('click', () => {
+      const filterType = option.getAttribute('data-filter');
+      const filterValue = option.getAttribute('data-value');
+      currentFilters[filterType] = filterValue;
+      fetchItems();
+      
+      // Update the button text to show the selected filter
+      const dropdownButton = option.closest('.dropdown').querySelector('button');
+      const buttonText = dropdownButton.textContent.split('\n')[0].trim();
+      dropdownButton.innerHTML = `${buttonText} <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>`;
+    });
+  });
+}
+
+// Debounce function to limit how often a function is called
+function debounce(func, wait) {
+  let timeout;
+  return function() {
+    const context = this;
+    const args = arguments;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      func.apply(context, args);
+    }, wait);
+  };
+}
+</script>
+</body>
+</html>

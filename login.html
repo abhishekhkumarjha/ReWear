@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>ReWear - Login</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <style type="text/tailwindcss">
+    :root {
+      --primary-color: #14b781;
+      --secondary-color: #f0f2f4;
+      --background-color: #f9f9f9;
+      --text-primary: #111418;
+      --text-secondary: #637488;
+      --accent-color: #e0e7ff;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-primary);
+    }
+    .button_primary {
+      @apply bg-[var(--primary-color)] text-white py-3 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 font-bold w-full;
+    }
+    .input {
+      @apply bg-white border border-gray-300 rounded-md py-3 px-4 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] w-full;
+    }
+    .link {
+      @apply text-[var(--primary-color)] hover:underline;
+    }
+  </style>
+</head>
+<body class="font-sans bg-[var(--background-color)] text-[var(--text-primary)]">
+  <div class="flex flex-col min-h-screen">
+    <header class="bg-white shadow-sm py-4 px-6">
+      <nav class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-3 text-[var(--text-primary)]">
+          <a href="landing_page.html">
+            <svg class="h-8 w-8 text-[var(--primary-color)]" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
+            </svg>
+          </a>
+          <h1 class="text-2xl font-bold">ReWear</h1>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a class="text-[var(--text-secondary)] hover:text-[var(--text-primary)]" href="landing_page.html">Shop</a>
+          <a class="text-[var(--text-secondary)] hover:text-[var(--text-primary)]" href="landing_page.html">Swap</a>
+          <a class="text-[var(--text-secondary)] hover:text-[var(--text-primary)]" href="landing_page.html">Sell</a>
+          <a class="text-[var(--text-secondary)] hover:text-[var(--text-primary)]" href="#">Community</a>
+          <a class="bg-[var(--secondary-color)] text-[var(--text-primary)] py-2 px-4 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50" href="signup.html">Sign up</a>
+        </div>
+      </nav>
+    </header>
+    <main class="flex-grow flex items-center justify-center">
+      <div class="bg-white rounded-lg shadow-lg p-8 m-4 w-full max-w-md">
+        <div class="text-center mb-8">
+          <h2 class="text-3xl font-bold text-[var(--text-primary)]">Welcome Back!</h2>
+          <p class="text-[var(--text-secondary)] mt-2">Log in to continue your sustainable fashion journey.</p>
+          <div id="error-message" class="text-red-500 text-sm mt-4 hidden"></div>
+        </div>
+        <form class="space-y-6" onsubmit="handleLogin(event)">
+          <div>
+            <label class="block text-sm font-medium text-[var(--text-primary)]" for="email">Email Address</label>
+            <div class="mt-1">
+              <input autocomplete="email" class="input" id="email" name="email" placeholder="you@example.com" required type="email"/>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-[var(--text-primary)]" for="password">Password</label>
+            <div class="mt-1">
+              <input autocomplete="current-password" class="input" id="password" name="password" placeholder="••••••••" required type="password"/>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <input class="h-4 w-4 text-[var(--primary-color)] focus:ring-[var(--primary-color)] border-gray-300 rounded" id="remember-me" name="remember-me" type="checkbox"/>
+              <label class="ml-2 block text-sm text-[var(--text-secondary)]" for="remember-me"> Remember me </label>
+            </div>
+            <div class="text-sm">
+              <a class="link" href="#"> Forgot your password? </a>
+            </div>
+          </div>
+          <div>
+            <button class="button_primary" type="submit">Log In</button>
+          </div>
+        </form>
+        <div class="text-center mt-4">
+          <p class="text-sm text-[var(--text-secondary)]">Don't have an account? <a href="signup.html" class="link">Sign up</a></p>
+        </div>
+      </div>
+    </main>
+    <footer class="bg-[var(--secondary-color)] py-6 mt-auto">
+      <div class="container mx-auto text-center text-[var(--text-secondary)]">
+        <p>© 2024 ReWear. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+<script>
+async function handleLogin(event) {
+  event.preventDefault();
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const errorMessage = document.getElementById('error-message');
+  const rememberMe = document.getElementById('remember-me').checked;
+
+  // Clear previous errors
+  errorMessage.classList.add('hidden');
+
+  if (!email || !password) {
+    errorMessage.textContent = 'Please fill in all fields';
+    errorMessage.classList.remove('hidden');
+    return;
+  }
+
+  // Show loading state
+  const submitButton = event.target.querySelector('button[type="submit"]');
+  const originalText = submitButton.textContent;
+  submitButton.disabled = true;
+  submitButton.innerHTML = `
+    <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+    </svg>
+    Logging in...
+  `;
+
+  try {
+    const result = await auth.login(email, password, rememberMe);
+    
+    if (result.success) {
+      window.location.href = '/profile';
+    } else {
+      errorMessage.textContent = result.message;
+      errorMessage.classList.remove('hidden');
+    }
+  } catch (error) {
+    errorMessage.textContent = 'An unexpected error occurred. Please try again.';
+    errorMessage.classList.remove('hidden');
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = originalText;
+  }
+}
+</script>
+<script src="/js/auth.js"></script>
+</body>
+</html>

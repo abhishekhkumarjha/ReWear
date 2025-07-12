@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ReWear - Browse Items</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --primary-color: #b7e0d2;
+        --background-color: #f9f9f9;
+        --text-primary: #333333;
+        --text-secondary: #666666;
+        --accent-color: #e0f2f7;
+      }
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-primary);
+      }
+      .button_primary {
+        @apply bg-[var(--primary-color)] text-white rounded-full px-4 py-2 hover:bg-opacity-80;
+      }
+      .button_secondary {
+        @apply bg-[var(--accent-color)] text-[var(--primary-color)] rounded-full px-4 py-2 hover:bg-opacity-80;
+      }
+      .input {
+        @apply border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:border-[var(--primary-color)];
+      }
+    </style>
+</head>
+<body class="antialiased">
+<div class="flex min-h-screen flex-col">
+<header class="sticky top-0 z-10 w-full border-b border-gray-200 bg-[var(--background-color)]/80 backdrop-blur-sm">
+<div class="container mx-auto flex items-center justify-between p-4 lg:px-10">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-2 text-xl font-bold text-[var(--text-primary)]" href="#">
+<svg class="h-8 w-8 text-[var(--primary-color)]" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
+</svg>
+<span>ReWear</span>
+</a>
+<nav class="hidden items-center gap-6 md:flex">
+<a class="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)]" href="#">Home</a>
+<a class="text-sm font-bold text-[var(--text-primary)]" href="#">Browse</a>
+<a class="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)]" href="#">My Items</a>
+<a class="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)]" href="#">Wishlist</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<input class="input w-full rounded-full border-gray-300 bg-white py-2 pl-10 pr-4 text-sm text-[var(--text-primary)] focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]" placeholder="Search for items..." type="search"/>
+</div>
+<button class="flex h-10 w-10 items-center justify-center rounded-full text-[var(--text-secondary)] hover:bg-gray-100 hover:text-[var(--text-primary)]">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"></path>
+</svg>
+</button>
+<button>
+<div class="h-10 w-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDm332ASmEuqQMqtFvz0fWS9kFuPp_i5bCCeyXYzCXkV0XmShFjxrZBfoGnFJEUhxoGot8orgKRPbVWZohHQVIeaPx2mVj23uEtxOK5zgHdI7vsQTG2bQjqMrFyn2zSXaoSMbogzZhCRH6eD07lgxVOonrVoVX0ZVsXpPIiSPem_fMGGevrKRrmZr_XsjHG67Wkg2q_qW-zrlcJiDQ7Xr2wE-GxSD1kIBfO8pX3J3EhDiUTn5mBvsyvYAZ0pDFchz4Kgo6zT_QwHtH8");'></div>
+</button>
+</div>
+</div>
+</header>
+<main class="container mx-auto flex-1 px-4 py-8 lg:px-10">
+<div class="mb-8">
+<h1 class="text-4xl font-bold text-[var(--text-primary)]">Browse Items</h1>
+<p class="mt-2 text-[var(--text-secondary)]">
+            Explore a wide range of clothing items available for exchange. Use filters to narrow down your search and find exactly what you're looking for.
+          </p>
+</div>
+<div class="mb-6 flex flex-wrap items-center gap-2">
+<button class="flex items-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm text-[var(--text-secondary)] hover:border-[var(--primary-color)] hover:text-[var(--text-primary)]">
+<span>Category</span>
+<svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<button class="flex items-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm text-[var(--text-secondary)] hover:border-[var(--primary-color)] hover:text-[var(--text-primary)]">
+<span>Size</span>
+<svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<button class="flex items-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm text-[var(--text-secondary)] hover:border-[var(--primary-color)] hover:text-[var(--text-primary)]">
+<span>Condition</span>
+<svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<button class="flex items-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm text-[var(--text-secondary)] hover:border-[var(--primary-color)] hover:text-[var(--text-primary)]">
+<span>Brand</span>
+<svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<button class="flex items-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm text-[var(--text-secondary)] hover:border-[var(--primary-color)] hover:text-[var(--text-primary)]">
+<span>Color</span>
+<svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<button class="flex items-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm text-[var(--text-secondary)] hover:border-[var(--primary-color)] hover:text-[var(--text-primary)]">
+<span>Price Range</span>
+<svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+<div class="group overflow-hidden rounded-lg bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg">
+<div class="aspect-[3/4] w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD9nWAVk9f3Bi11PHVXJA2JDR2Lrm9gxuwKObpT2cuWNLRAM0zpsR0jgusKA-kzaqrsdo2Ltp-BNaumy5H4SbeUcRQN2M9QVfGx_YwfJ0FPYQN7uuuEsFHyVQjP28C1nhY8D5-H3xzxVXwmIm2bGfgHaUoQGteulxd2R9aPDqW4L7XafhDMnWnnCVd63JWvb9OFTiPYgcoMjIqzviOsiPT_IzsEn5V3C1e-zmNwdvJsYze-5vGiNzduM6jXjJL_LFA8gcK1F6f7y6lQ");'></div>
+<div class="p-4">
+<h3 class="font-semibold text-[var(--text-primary)]">Vintage Denim Jacket</h3>
+<p class="text-sm text-[var(--text-secondary)]">Size M, Good Condition</p>
+<p class="mt-1 text-sm font-semibold text-[var(--text-primary)]">$35</p>
+</div>
+</div>
+<div class="group overflow-hidden rounded-lg bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg">
+<div class="aspect-[3/4] w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBd2b8uML8XVbPHI0qZdQoxRuXcYEnbNqpv8HvLPfKVLbpFOAyP3sc-DN2jMUT3fu4zBzOg93f-1yHgJHVKrrBd8zR4c2Ed7QXCH2vUyuUM1Qpti-LMpGB2SBurFRpk7n2wn_cHg2liIUHCafPXeFNc6yFGKoKpg2StKMNbBMEdnUyM3CPq3weUYIZdV2sHMubUQF9EqDJY8UKDOS9nakVbDNMza14zSBehS0I2WB021EWb8xcPi9feiqFpGpB5T8x1CDpnc9wCviH8");'></div>
+<div class="p-4">
+<h3 class="font-semibold text-[var(--text-primary)]">Silk Scarf</h3>
+<p class="text-sm text-[var(--text-secondary)]">One Size, Excellent</p>
+<p class="mt-1 text-sm font-semibold text-[var(--text-primary)]">$20</p>
+</div>
+</div>
+<div class="group overflow-hidden rounded-lg bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg">
+<div class="aspect-[3/4] w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbRsSzs-6iR5nmcAUBq6I2fCWVNus3vq-4wybP1K6A8t_sLGR8h_iefKgSsLDzgiH0FZtgMe1Arx41oHuri7Rqr7WGeXiTxW4MmC-MoMPryzLlET7cF4Yp4GunDrLRmOHuguIaCVAp4VXqAzd7OK068wxwAMzZycwLnWkHuohzBLFBGo2yQL6mvx3ptkyktbA5ql6g4jlk0Xe-P85d0AeXBgMO9j7aEziz-xCR58Kofmvk0YjTUfQ8IE5X7J-Sn334XDN8dPIZQAIx");'></div>
+<div class="p-4">
+<h3 class="font-semibold text-[var(--text-primary)]">Leather Boots</h3>
+<p class="text-sm text-[var(--text-secondary)]">Size 8, Fair Condition</p>
+<p class="mt-1 text-sm font-semibold text-[var(--text-primary)]">$50</p>
+</div>
+</div>
+<div class="group overflow-hidden rounded-lg bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg">
+<div class="aspect-[3/4] w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB2WtAj7b4DQO-xwMT-ZQaPyB8IwnmdjHYtISbdtKdQc3VAwQ5-1bUsVcLVi8HUf0bHvYn-UDwKTDiYs6PXs1SipyDk6u3U9E-K4YG_R7RrdqbEsDyKHfpwY-x54d-m_CGPSWnXDfMOeLRDYKjUClr7adx40TXFmRC0RdYwkLawpeqyxUP6Mi8_p-Hea05TmnF78NHJZvPB9G5sXGBqdyqdymIV6x45oaetA-VQXhE-csy5TUaZTHNyjcBirqiT9sm2rgiTgEqMASH8");'></div>
+<div class="p-4">
+<h3 class="font-semibold text-[var(--text-primary)]">Cashmere Sweater</h3>
+<p class="text-sm text-[var(--text-secondary)]">Size S, Like New</p>
+<p class="mt-1 text-sm font-semibold text-[var(--text-primary)]">$80</p>
+</div>
+</div>
+<div class="group overflow-hidden rounded-lg bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg">
+<div class="aspect-[3/4] w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBhod0MwbqMW9lZ9ctQ1yQNQ_H2Z6KNS86CadUStjPzfpkIjRIdonacQ4lfAPXKayKDDrVfcq-7jsFwMm_ZUa6gCjP2OzPer0hTlGQe0vmRfThC0lUTqrx-QO_Gum9Vt7iKbJXuQQaFP4W8r2huF8Ayhhdm5ASUjb_2rOhi1v9MXoN9ObqR5GsmJBaY_trFLfGm0cS2TYhToxYYwtl-V2W_ddbxB7lgnosNiKoYEvddUPolawAQoSENb8QZcNELWfg4S5iGZOC-H-ha");'></div>
+<div class="p-4">
+<h3 class="font-semibold text-[var(--text-primary)]">Cotton T-Shirt</h3>
+<p class="text-sm text-[var(--text-secondary)]">Size L, Good Condition</p>
+<p class="mt-1 text-sm font-semibold text-[var(--text-primary)]">$15</p>
+</div>
+</div>
+<div class="group overflow-hidden rounded-lg bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg">
+<div class="aspect-[3/4] w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC4PacfoH81J8bAxRFcrn2MIkFt-7JPi9tcIalXSy4v7jl3b2tAbO3_3NotG2Pf6Qmfqxl5-pPcd4pAdcn-QOnNmV8kSa19oCRfGG_nNdR9C-KHe3YVOOGpzcqY9oKCCFpr74_MaDqDngcTVBzoTSou991c31LMZZ3AwTKmlAggKKDqFcYvwajgjgq6mR3m9lG8XsMGZHwVUszWWEwkgLH3x-pt_i2K0A7svc6UcvX2w-YPajpvCu7YsU5Woyt4pV4Zu4sgCBBTvkqT");'></div>
+<div class="p-4">
+<h3 class="font-semibold text-[var(--text-primary)]">Wool Coat</h3>
+<p class="text-sm text-[var(--text-secondary)]">Size M, Excellent</p>
+<p class="mt-1 text-sm font-semibold text-[var(--text-primary)]">$120</p>
+</div>
+</div>
+<div class="group overflow-hidden rounded-lg bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg">
+<div class="aspect-[3/4] w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD2eMkw474gZEPgX7dRfIb1_0SDZ7rv6lvFbI7daxA-W_BvVimh3Zoc0Nic5_DOMgSzznpS0j4kOmUNufFtq6vvUU-Hk3faADJNCJLf2xrHFZqJncEcoXtE_mNpTnyu-rsjF0j6CtDf7qbzWVMdZqZYiUFZzrkogJm-yTi0GG5-I4PX6_CV_dZcaPoym_fSPSyYcS4Q8crNFjZfXgieP9ZXPC3eRvlKP8TkYksmO2Y7-D-PBsIvHFTa9JnaebSKz8-aPZQ7qXLcUZvX");'></div>
+<div class="p-4">
+<h3 class="font-semibold text-[var(--text-primary)]">Linen Pants</h3>
+<p class="text-sm text-[var(--text-secondary)]">Size 32, Good Condition</p>
+<p class="mt-1 text-sm font-semibold text-[var(--text-primary)]">$40</p>
+</div>
+</div>
+<div class="group overflow-hidden rounded-lg bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg">
+<div class="aspect-[3/4] w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBAXkoArGpJB_MeDshURcZXWiSgd9bg6GYLIfOtjDt_AtK53U4DTlouvvO4ObjhDVCkGbG0rZiBEdnJszeEGWsltO2DMbwCcegX32aKCfVJCiDVlz_vQMlpFA7nM3MBwQOq-d9bbFnuHpNYyJW6Y7hlI32DDWrTF5pr3oh6Zvtlf9CE4VWyF8qw4Wogi7C_doYxPGdDrIX8s3XckYxdn-MhWghXhvgpmdy4HauOJrvLSrxBqSN1jdu6RNTRbSKJt3t2GMON_ZnGnjE_");'></div>
+<div class="p-4">
+<h3 class="font-semibold text-[var(--text-primary)]">Velvet Dress</h3>
+<p class="text-sm text-[var(--text-secondary)]">Size 6, Excellent</p>
+<p class="mt-1 text-sm font-semibold text-[var(--text-primary)]">$65</p>
+</div>
+</div>
+<div class="group overflow-hidden rounded-lg bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg">
+<div class="aspect-[3/4] w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDk_uPrT2l1ycTv56QJlLPlyYpP84OX2Sw9gIaSldBQKDAEDO7Zahn0Zgncxi79oxMBY-jveP9fUX8C2FwGGHBRO2L3VhmXHXjDHKj4KOe-bf9RZDuQQXmpW3STmU_ve6-nz4L78pje654I3uSjz5asTEEkub7RcQr1zq5UmJUsiECP_uTq683CZFh6Q4M0rtm5adSZFqWV69kA62Ec0HuA2C-LsIfL6PpKEYtSJcJRgJVwbtc8LjZD9-4DErmyBKMD2PyYX_gH9s8J");'></div>
+<div class="p-4">
+<h3 class="font-semibold text-[var(--text-primary)]">Floral Summer Dress</h3>
+<p class="text-sm text-[var(--text-secondary)]">Size M, Like New</p>
+<p class="mt-1 text-sm font-semibold text-[var(--text-primary)]">$45</p>
+</div>
+</div>
+<div class="group overflow-hidden rounded-lg bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg">
+<div class="aspect-[3/4] w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDk_uPrT2l1ycTv56QJlLPlyYpP84OX2Sw9gIaSldBQKDAEDO7Zahn0Zgncxi79oxMBY-jveP9fUX8C2FwGGHBRO2L3VhmXHXjDHKj4KOe-bf9RZDuQQXmpW3STmU_ve6-nz4L78pje654I3uSjz5asTEEkub7RcQr1zq5UmJUsiECP_uTq683CZFh6Q4M0rtm5adSZFqWV69kA62Ec0HuA2C-LsIfL6PpKEYtSJcJRgJVwbtc8LjZD9-4DErmyBKMD2PyYX_gH9s8J");'></div>
+<div class="p-4">
+<h3 class="font-semibold text-[var(--text-primary)]">Graphic Hoodie</h3>
+<p class="text-sm text-[var(--text-secondary)]">Size L, Good Condition</p>
+<p class="mt-1 text-sm font-semibold text-[var(--text-primary)]">$30</p>
+</div>
+</div>
+</div>
+<div class="mt-8 flex items-center justify-center space-x-1">
+<a class="flex h-10 w-10 items-center justify-center rounded-full text-[var(--text-secondary)] hover:bg-gray-100" href="#">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.75 19.5L8.25 12l7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+<a class="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--primary-color)] text-sm font-bold text-white" href="#">1</a>
+<a class="flex h-10 w-10 items-center justify-center rounded-full text-sm text-[var(--text-secondary)] hover:bg-gray-100" href="#">2</a>
+<a class="flex h-10 w-10 items-center justify-center rounded-full text-sm text-[var(--text-secondary)] hover:bg-gray-100" href="#">3</a>
+<a class="flex h-10 w-10 items-center justify-center rounded-full text-[var(--text-secondary)] hover:bg-gray-100" href="#">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.25 4.5l7.5 7.5-7.5 7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+</main>
+</div>
+
+</body></html>
